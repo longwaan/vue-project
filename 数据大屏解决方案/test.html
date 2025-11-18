@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background: url(./bg.png) no-repeat;
+            background-size: cover;
+        }
+
+        .box {
+            position: fixed;
+            width: 1920px;
+            height: 1080px;
+            background: oldlace;
+            transform-origin: left top;
+            /* transform: scale(1.2); */
+            left: 50%;
+            top: 50%;
+        }
+
+        .top {
+            width: 100px;
+            height: 100px;
+            background: olive;
+        }
+
+        .bottom {
+            width: 100px;
+            height: 100px;
+            background: rgb(28, 219, 252);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="top">11111</div>
+            <div class="bottom">2222</div>
+        </div>
+    </div>
+</body>
+
+<script>
+    //控制数据大屏放大与缩小
+    let box = document.querySelector('.box');
+
+box.style.transform=`scale(${getScale()}) translate(-50%, -50%)`
+    //计算缩放的比例
+    function getScale(w = 1920, h = 1080) {
+        const ww = window.innerWidth / w;
+        const wh = window.innerHeight / h;
+        // return ww<wh?ww:wh;
+        return Math.min(ww, wh);
+
+
+    }
+
+    window.onresize = function () {
+        box.style.transform = `scale(${getScale()}) translate(-50%, -50%)`;
+    }
+</script>
+
+</html>
