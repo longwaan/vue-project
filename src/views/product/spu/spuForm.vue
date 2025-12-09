@@ -147,6 +147,7 @@ const toEdit = (row: SaleAttr) => {
 const toLook = (row: SaleAttr) => {
     // 整理收集到的属性的ID与属性的名字
     const { baseSaleAttrId, saleAttrValue } = row
+    // console.log(baseSaleAttrId, saleAttrValue )
 
     // 非法情况判断
     if (saleAttrValue?.trim() === '') {
@@ -221,6 +222,7 @@ const initAddSpu = async (c3Id: number | string) => {
         tmId: "",
         spuSaleAttrList: [],
         spuImageList: [],
+        id:undefined,
     });
     //清空照片
     imgList.value = [];
