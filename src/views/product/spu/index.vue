@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Delete, Edit, Plus, View } from '@element-plus/icons-vue';
-import { ref, watch, onBeforeMount } from 'vue'
+import { ref, watch, onBeforeUnmount } from 'vue'
 //请求方法
 import { reqHasSpu, reqSkuList, reqRemoveSpu } from '@/api/product/spu';
 //引入ts的类型
@@ -120,7 +120,7 @@ const deleteSpu = async (row: SpuData) => {
 }
 
 //路由组件销毁前，情况仓库关于分类的数据
-onBeforeMount(() => {
+onBeforeUnmount(() => {
   categoryStore.$reset()
 })
 
